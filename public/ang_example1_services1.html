@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+ 
+<head>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/web3.min.js"></script>
+    <script src="js/truffle-contract.js"></script>
+
+<script src= "angular.min.js"></script>
+
+
+<script src="example1/controllers.js"></script>
+    <script src="example1/services.js"></script>
+
+	
+</head>
+
+<body>
+
+<div ng-app="starter" >
+
+<div  ng-controller="myCtrl">
+<br>
+Click on loadpets and getadopters
+</br>
+</div>
+
+<div  ng-controller="ChatsCtrl">
+<button ng-click="loadpets()">  loadpets </button>
+<button ng-click="getadopters()">  getadopters </button>
+<ul>
+<li ng-repeat="pet in pets">
+pet id = {{pet.id}}
+pet name = {{pet.name}}
+adopted = {{adopters[pet.id]}}
+<button ng-click="adoptpet(pet.id)">  adoptpet </button>
+ <p>{{pet.lastText}}</p>
+
+</li>
+</ul>
+
+</div>
+
+
+
+
+</div>
+
+<script>
+var app = angular.module('starter', ['starter.controllers', 'starter.services']);
+
+app.controller('myCtrl', function($scope) {
+
+    $scope.firstName = "John";
+    $scope.lastName = "Doe";
+});
+
+
+
+
+
+</script>
+
+</body>
+</html>
