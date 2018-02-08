@@ -26,7 +26,7 @@ function loadcontract (){
 $http.get('/Adoption.json').then(function(response) {
 
 
-   alert('loadedinitcontract');
+   // alert('Loaded adoption contract');
   var AdoptionArtifact = response.data;
   contracts.Adoption = TruffleContract(AdoptionArtifact);
   contracts.Adoption.setProvider(web3Provider);
@@ -34,17 +34,17 @@ $http.get('/Adoption.json').then(function(response) {
 
 
 
-                   }, function(errResponse) {
+   }, function(errResponse) {
 
                  console.error('Error while fetching notes');
 
-           });
+   });
 }
 
 // $http.get('http://8000/Adoption.json', function(data) {
   // Get the necessary contract artifact file and instantiate it with truffle-contract
 function handleAdopt(id) {
-   alert('handleadopt');
+   alert('Handling adoption ');
     event.preventDefault();
 
     var petId = id;
@@ -57,7 +57,7 @@ web3.eth.getAccounts(function(error, accounts) {
   }
 
   var account = accounts[1];
-alert(account);
+alert("Address of the user adopting=",account);
 
 
 contracts.Adoption.deployed().then(function(instance) {
